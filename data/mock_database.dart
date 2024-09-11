@@ -7,7 +7,7 @@ class MockDatabase implements DatabaseRepository {
   @override
   void addUser(String email, UsersList newUser) {
     if (!usersList.containsKey(email)) {
-      usersList[email] = UsersList(email: email, userName: '', isActive: true);
+      usersList[email] = UsersList(email: email, userName: '', isActive: false);
     } else {
       print('User with email $email already exists.');
     }
@@ -15,13 +15,11 @@ class MockDatabase implements DatabaseRepository {
 
   @override
   List<UsersList> getAllUserNames() {
-    // Return all users as a list
     return usersList.values.toList();
   }
 
   @override
   UsersList getUserByEmail(String email) {
-    // Get user details by email
     if (usersList.containsKey(email)) {
       return usersList[email]!;
     } else {
@@ -32,7 +30,6 @@ class MockDatabase implements DatabaseRepository {
 
   @override
   void updateUsersStatus(String email, bool isActive) {
-    // Update the active status of a user
     if (usersList.containsKey(email)) {
       usersList[email]!.isActive = isActive;
     } else {
@@ -42,7 +39,6 @@ class MockDatabase implements DatabaseRepository {
 
   @override
   void removeUser(String email) {
-    // Delete a user by email
     if (usersList.containsKey(email)) {
       usersList.remove(email);
     } else {
