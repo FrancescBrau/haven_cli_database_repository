@@ -1,9 +1,9 @@
-class Propertieslist {
+class Property {
   String userName;
   String propertyId;
   bool isActive;
 
-  Propertieslist({
+  Property({
     required this.userName,
     required this.propertyId,
     required this.isActive,
