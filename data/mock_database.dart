@@ -5,10 +5,9 @@ class MockDatabase implements DatabaseRepository {
   Map<String, UsersList> usersList = {};
 
   @override
-  void addUser(String userName, String email, bool isActive) {
+  void addUser(String email, UsersList newUser) {
     if (!usersList.containsKey(email)) {
-      usersList[email] =
-          User(userName: userName, email: email, isActive: isActive);
+      usersList[email] = UsersList(email: email, userName: '', isActive: true);
     } else {
       print('User with email $email already exists.');
     }
@@ -27,7 +26,7 @@ class MockDatabase implements DatabaseRepository {
       return usersList[email]!;
     } else {
       print('User with email $email not found.');
-      return User(userName: 'Unknown', email: email, isActive: false);
+      return UsersList(userName: 'Unknown', email: email, isActive: false);
     }
   }
 
