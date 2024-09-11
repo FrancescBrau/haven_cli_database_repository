@@ -1,11 +1,11 @@
-import 'file:///Users/francescbrau/Code/Haven-Project/Haven-Project%20DATABASE/haven_cli_database_repository/models/usersList.dart';
+import '../models/user.dart';
 
 abstract class DatabaseRepository {
-  void addUser(String email, UsersList newUser);
+  void addUser(String userName, String email, bool isActive);
 
-  List<UsersList> getAllUserNames();
+  List<User> getAllUserNames();
 
-  UsersList getUserByEmail(String email);
+  User getUserByEmail(String email);
 
   void updateUsersStatus(String email, bool isActive);
 

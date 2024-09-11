@@ -1,9 +1,9 @@
-class UsersList {
+class User {
   String userName;
   String email;
   bool isActive;
 
-  UsersList({
+  User({
     required this.userName,
     required this.email,
     required this.isActive,

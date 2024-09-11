@@ -1,30 +1,30 @@
+import '../models/user.dart';
 import 'database_repository.dart';
-import 'file:///Users/francescbrau/Code/Haven-Project/Haven-Project%20DATABASE/haven_cli_database_repository/models/usersList.dart';
 
 class MockDatabase implements DatabaseRepository {
-  Map<String, UsersList> usersList = {};
+  Map<String, User> usersList = {};
 
   @override
-  void addUser(String email, UsersList newUser) {
+  void addUser(String userName, String email, bool isActive) {
     if (!usersList.containsKey(email)) {
-      usersList[email] = UsersList(email: email, userName: '', isActive: false);
+      usersList[email] = User(userName: '', email: email, isActive: false);
     } else {
       print('User with email $email already exists.');
     }
   }
 
   @override
-  List<UsersList> getAllUserNames() {
+  List<User> getAllUserNames() {
     return usersList.values.toList();
   }
 
   @override
-  UsersList getUserByEmail(String email) {
+  User getUserByEmail(String email) {
     if (usersList.containsKey(email)) {
       return usersList[email]!;
     } else {
       print('User with email $email not found.');
-      return UsersList(userName: 'Unknown', email: email, isActive: false);
+      return User(userName: 'Unknown', email: email, isActive: false);
     }
   }
 
