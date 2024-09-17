@@ -17,7 +17,7 @@ void main() {
 
   datenbank.updateUsersStatus('jp@app-akademie.com', true);
 
-  datenbank.removeUser('tabeagnade@app-akademie.com');
+  datenbank.removeUser(user);
 
   users = datenbank.getAllUserNames();
   print(users.map((user) => user.userName).toList());

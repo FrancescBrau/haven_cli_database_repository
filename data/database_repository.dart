@@ -9,5 +9,5 @@ abstract class DatabaseRepository {
 
   void updateUsersStatus(String email, bool isActive);
 
-  void removeUser(String id);
+  void removeUser(User user);
 }

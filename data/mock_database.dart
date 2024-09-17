@@ -38,11 +38,11 @@ class MockDatabase implements DatabaseRepository {
   }
 
   @override
-  void removeUser(String email) {
-    if (usersList.containsKey(email)) {
-      usersList.remove(email);
+  void removeUser(User user) {
+    if (usersList.containsKey(user.email)) {
+      usersList.remove(user.email);
     } else {
-      print('User with email $email not found.');
+      print('$user not found.');
     }
   }
 }
